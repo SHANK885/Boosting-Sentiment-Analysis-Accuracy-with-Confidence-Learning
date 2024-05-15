@@ -1,7 +1,18 @@
 # Boosting Sentiment Analysis Accuracy with Confidence Learning
 
----
 
+In this project, I have developed a deep learning system tailored for sentiment analysis of product reviews for a newly established online beauty product retail company.
+
+The goal is to assist the company in making informed decisions about inventory management – deciding what products to retain and what to remove from stock.
+
+The company, keen on enhancing customer satisfaction, has been actively monitoring comments on its website and has invested in annotators to label sentiments.
+
+They hand you a dataset comprising 80,000 customer reviews, each labeled with 0 for negative sentiment and 1 for positive sentiment.
+After extensive effort and refinement, you successfully train and deploy a classifier that predicts sentiment based on online comments. Excitedly, you report an 86% accuracy on a held-out test set to your bosses.
+
+To your disappointment, management expresses dissatisfaction, insisting on a minimum of 90% accuracy before considering the widespread implementation of the AI model.
+
+---
 
 # Sentiment Analysis with Noisy Labels using AWS SageMaker
 
@@ -13,23 +24,6 @@ Given that annotation errors are a common occurrence, our approach involves empl
 
 To test the effectiveness of Confidence Learning, we plan to apply it to a real-world scenario involving sentiment analysis. Imagine developing a deep learning system to analyze product review sentiments for a new online beauty product store. The system's aim is to help the company decide which products to keep and which to phase out. The company actively monitors customer feedback on its website and has engaged annotators to label these sentiments. You are provided with a dataset of 80,000 customer reviews, each tagged with a 0 for negative sentiment or a 1 for positive sentiment. This project will serve as a practical application to assess how Confidence Learning can improve the accuracy and reliability of sentiment analysis in a dynamic, real-world environment.
 
-## Target Student
-  - #### Background of the Target Learner:
-    Individuals with a foundational understanding of machine learning and a keen interest in delving into the operational aspects of   
-    practical deep learning for real-world applications. This includes a basic grasp of programming and familiarity with fundamental 
-    machine learning concepts.
-
-  - #### Current Job Titles:
-    This project is designed for data scientists and research engineers actively engaged in the field. These professionals are seeking
-    to enhance their skill set by acquiring best practices in constructing and maintaining sophisticated deep learning models. They may
-    already possess experience in working with data and machine learning algorithms.
-
-  - #### Aspiring Job Titles:
-    Learners taking this project aspire to elevate their roles and responsibilities within the domain of artificial intelligence. They
-    aim to transition or progress into more advanced positions such as Senior Data Scientist, Machine Learning Engineer, or Research
-    Scientist, where a deep understanding of practical deep learning applications is crucial. Additionally, individuals who are curious
-    about the emerging data-centric approach to machine learning and artificial intelligence will find valuable insights to support
-    their exploration and potential career shifts.
 
 ## Prerequisite Skills
   -  Intermediate Python
@@ -45,8 +39,6 @@ Students will be able to:
 2. Measure the impact of reviewing and fixing annotation errors on the model performance.
 3. Fix annotation errors and evaluate the impact of the fixing on model performance.
 
-## Expected Completion Time:
-5 hours
 
 ## Getting Started
 
@@ -66,10 +58,10 @@ Then, go through the following steps:
   - `cd SageMaker`
 
 **3. Clone the Repository:**
-  - `git clone https://github.com/udacity/cd13451-sentiment-analysis-project.git`
+  - `git clone https://github.com/SHANK885/Boosting-Sentiment-Analysis-Accuracy-with-Confidence-Learning.git`
 
 **4. Accessing the Repository in the Notebook:**
-  - After cloning, you can go back to the Jupyter interface and navigate to the cloned repository directory. You will find it in the file explorer. You then open `cd13451-sentiment-analysis-project` repository directory and navigate to the `starter` directory. Then, open `Confidence_Learning.ipynb` notebook.
+  - After cloning, you can go back to the Jupyter interface and navigate to the cloned repository directory. You will find it in the file explorer. Then, open `Confidence_Learning.ipynb` notebook.
     
 ### Dependencies
 The dependencies are listed in a `requirements.txt` in 
@@ -78,12 +70,12 @@ starter/requirements.txt
 ```
 
 ## Project Instructions
-The datasets for this project are provided as CSV files in the `starter/data` directory and are intended for use by the sentiment classifier. Our training model is a 3-layer MLP that is built on top of pre-computed BERT features. This model, implemented using [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/starter/introduction.html), can be found in `src/sentiment_classifier_system.py`. Rather than processing raw text, we use a pre-trained 'foundation model' to map each review text into a 768-dimensional vector embedding. These embedding files are stored in `.pt` format and you can find them in your classroom workspace. Please follow the steps below to complete the project:
+The datasets for this project are provided as CSV files in the `data` directory and are intended for use by the sentiment classifier. Our training model is a 3-layer MLP that is built on top of pre-computed BERT features. This model, implemented using [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/starter/introduction.html), can be found in `src/sentiment_classifier_system.py`. Rather than processing raw text, we use a pre-trained 'foundation model' to map each review text into a 768-dimensional vector embedding. These embedding files are stored in `.pt` format and you can find them in your classroom workspace. Please follow the steps below to complete the project:
 
 1. Start by reading a 2-page summary on the [confidence learning algorithm](https://docs.google.com/document/d/131GumbG99v_b-lO_G_cP9sZS01nxSVFhGICfu4S52ds/edit). [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) is a Python library for identifying potential label quality issues. Gain a comprehensive understanding about [Cleanlab](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#) by reviewing the [overview](https://docs.cleanlab.ai/v2.0.0/tutorials/indepth_overview.html#), and see an example of Cleanlab interacting with PyTorch models in an image classification tutorial [here](https://docs.cleanlab.ai/v2.0.0/tutorials/image.html).
 2. Access the AWS console and select S3 from the services.
 3. Within your S3 bucket (similar to `sagemaker-us-east-1-{ACCOUNT NUMBER}`), create a data folder. Confirm the bucket variable in the Confidence_Learning.ipynb notebook.
-4. Download the `train.pt`, `dev.pt`, and `test.pt` files, as well as the `train.csv`, `dev.csv`, and `test.csv` files from your classroom workspace. Then, manually upload them to your S3 bucket at `s3://sagemaker-us-east-1-{ACCOUNT NUMBER}/data/`.
+4. Download the `train.pt`, `dev.pt`, and `test.pt` files, as well as the `train.csv`, `dev.csv`, and `test.csv` files from this [link](https://drive.google.com/drive/folders/1QO3T3XaeAcLgJFB-UWrK_jYEzHNW_7H8?usp=sharing). Then, manually upload them to your S3 bucket at `s3://sagemaker-us-east-1-{ACCOUNT NUMBER}/data/`.
 5. Choose PyTorch Kernel for the Confidence_Learning.ipynb notebook and fill out the TODO parts in the Confidence_Learning.ipynb and main.py.
     - Key steps to accomplish in Confidence_Learning.ipynb:
       1. Handle data input in Sagemaker.
